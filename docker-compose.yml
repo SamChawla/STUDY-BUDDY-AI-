@@ -7,10 +7,10 @@ services:
     expose:
       - 8501
     
-    # 🚨 CRITICAL FIX: Load secrets from the .env file
-    env_file:
-      - .env 
-
+    # 🚨 Inject the key directly into the container's environment
+    environment:
+      - GROK_API_KEY=
+      
   nginx-proxy:
     # ... (rest of the Nginx configuration remains the same)
     image: nginx:stable-alpine
